@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper
+	PUBLIC "-//mybatis.org/DTD Mapper 3.0/EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+	
+<mapper namespace="com.gyojincompany.ch2901.dao.IDao">
+	
+	<select id="listDao" resultType="com.gyojincompany.ch2901.dto.ContentDto">
+		SELECT * FROM simple_board ORDER BY mid DESC
+	</select>
+	
+	<insert id="writeDao">
+		INSERT INTO simple_board (mid, mwriter, mcontent) VALUES(simple_board_seq.nextval,#{mwriter},#{mcontent})
+	</insert>
+	
+	<delete id="deleteDao">
+		DELETE FROM simple_board WHERE mid=#{mid}
+	</delete>
+	
+
+</mapper>
